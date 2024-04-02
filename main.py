@@ -12,7 +12,8 @@ app = Client(
     session_string=constants.SESSSION_STRING
 )
 
-@app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL) & filters.regex(r'🔥'))
+# @app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL) & filters.regex(r'🔥'))
+@app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL))
 async def forward_message(_, message: Message):
 
     # if message.media: return # uncomment to ignore messages with media 

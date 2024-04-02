@@ -9,6 +9,7 @@ app = Client(
     "userbot", 
     api_id=constants.API_ID,
     api_hash=constants.API_HASH,
+    session_string=constants.SESSSION_STRING
 )
 
 @app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL) & filters.regex(r'🔥'))

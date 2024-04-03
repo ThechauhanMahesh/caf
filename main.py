@@ -3,7 +3,7 @@ import constants
 from pyrogram.types import Message
 from pyrogram import Client, filters
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARN)
 
 app = Client(
     "userbot", 
@@ -15,6 +15,10 @@ app = Client(
 @app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL) & filters.regex(r'🔥'))
 # @app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL))
 async def forward_message(_, message: Message):
+
+    if topic_id := constants.SOURCE_TOPIC:
+        if message.reply_to_message_id != topic_id:
+            return 
 
     # if message.media: return # uncomment to ignore messages with media 
 

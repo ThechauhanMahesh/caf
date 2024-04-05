@@ -16,9 +16,8 @@ app = Client(
 # @app.on_message(filters=filters.chat(constants.SOURCE_CHANNEL))
 async def forward_message(_, message: Message):
 
-    if topic_id := constants.SOURCE_TOPIC:
-        if message.reply_to_message_id != topic_id:
-            return 
+    if not message.reply_to_message_id in constants.SOURCE_TOPIC:
+        return 
 
     # if message.media: return # uncomment to ignore messages with media 
 

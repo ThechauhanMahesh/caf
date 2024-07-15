@@ -25,4 +25,5 @@ async def forward_message(_, message: Message):
     # await message.forward(constants.TARGET_CHANNEL) # to forward message
 
 if __name__ == "__main__":
+    print("startingt Bot...")
     app.run()
